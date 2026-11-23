@@ -92,6 +92,8 @@ CARDS = [
          stat='design · front end · back end · deploy', pills=['HTML/CSS/JS', 'PHP', 'PayPal']),
     dict(slug='grymlife', name='grymlife.com', accent={'dark': '#4fd1a5', 'light': '#1f7a5c'}, l1='Artist portfolio site', l2='Static pages + custom PHP admin',
          stat='live 2026 · guarded cutover with auto rollback', pills=['PHP', 'HTML/CSS/JS', 'Python']),
+    dict(slug='play', name='PLAY', accent={'dark': '#ff8a3d', 'light': '#b85a12'}, l1='Your movies, on your Roku.', l2='Windows app + Roku TV app',
+         stat='no accounts · no cloud · no transcoding', pills=['Python', 'Qt 6', 'BrightScript']),
 ]
 
 os.makedirs(OUT, exist_ok=True)
