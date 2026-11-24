@@ -127,7 +127,7 @@ CARDS = [
     dict(slug='sensitive-pi', name='Sensitive P.I.', accent={'dark': '#ff6b6b', 'light': '#c23b3b'}, icon=img('sensitive-pi-icon-168.webp'),
          l1='Finds exposed IDs, cards and', l2='passwords in your photos.', stat='on Google Play · runs fully on-device', pills=['Kotlin', 'Android']),
     dict(slug='ulti-list', name='Ulti-List', accent={'dark': '#c8f23b', 'light': '#3a31a0'}, icon=img('ulti-list-icon-168.webp'),
-         l1='Save movies, shows, books', l2='& games for later.', stat="pick tonight's in seconds · no accounts · your list stays on your device", pills=['Kotlin', 'Jetpack Compose', 'Room']),
+         l1='Save movies, shows, books', l2='& games for later.', stat="pick what's next in seconds · no accounts · your list stays on your device", pills=['Kotlin', 'Jetpack Compose', 'Room']),
     dict(slug='websites', name='Manifest', accent={'dark': '#b58ef0', 'light': '#6b3fb5'}, l1='manifestdnb.com', l2='Label site + download store',
          stat='design · front end · back end · deploy', pills=['HTML/CSS/JS', 'PHP', 'PayPal']),
     dict(slug='grymlife', name='GrymLife', accent={'dark': '#4fd1a5', 'light': '#1f7a5c'}, l1='grymlife.com', l2='Artist portfolio site',
