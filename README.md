@@ -14,7 +14,7 @@
   <a href="mailto:aaronpimpson@gmail.com">Email</a>
 </p>
 
-<p align="center"><b>332 commits</b> in the last year</p>
+<p align="center"><b>1,261 commits</b> in the last year across 20 projects</p>
 
 ## Desktop
 
