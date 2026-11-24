@@ -66,28 +66,55 @@ def hero(mode):
 
 
 # Cards are full-width rows, drawn 1224 wide so a card at width="100%" on GitHub's 830px column keeps the two-up text
-# size (scale 0.678). The name is the heading across the top. Under it, a two-column grid on shared rows:
-#   row 1: tagline (left)  | features (right, accent)
-#   row 2: subtitle (left) | tech pills (right)
-# Every card uses the same grid, so the left and right lines line up exactly. An icon (Sensitive P.I.) sits at the
-# top right, level with the heading.
-COL2 = 592                                    # the right column (the widest left line ends ~453)
-ROW1, ROW2 = 128, 170                         # baselines of the two rows
+# size (scale 0.678). Left: name, tagline, subtitle. A thin divider. Right: the features (accent colour, split onto two
+# lines when long) above the tech pills; the right block is vertically centred on the left block so the card reads as
+# one row. The height fits the content. An icon (Sensitive P.I.) sits at the far right, centred.
+DIV = 520                                    # the divider (the widest left line ends ~470); the right block starts 36 after it
 
 
-def card(c, mode, w=1224, h=208):
+def text_w(s, size):
+    return len(s) * size * 0.6                 # JetBrains Mono: every glyph is 0.6 em wide
+
+
+def feature_lines(stat, size, room):
+    """The features on one line, or split at a ' · ' into two lines when one doesn't fit."""
+    if text_w(stat, size) <= room:
+        return [stat]
+    parts = stat.split(' · ')
+    best = None
+    for k in range(1, len(parts)):
+        a, b = ' · '.join(parts[:k]), ' · '.join(parts[k:])
+        widest = max(text_w(a, size), text_w(b, size))
+        if best is None or widest < best[0]:
+            best = (widest, [a, b])
+    return best[1]
+
+
+def card(c, mode, w=1224, h=196):
     t = THEMES[mode]
     a = c['accent'][mode]
     s = head(w, h, f"{c['name']}: {c['l1']} {c['l2']} {c['stat']}", t)
     s += glow(t, a, w - 60, 30)
     s += f'<rect width="{w}" height="6" fill="{a}"/>\n'
-    s += f'<text x="44" y="78" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
+    # left block: name / tagline / subtitle (top of the name cap ~ y 46, bottom of the subtitle ~ y 156)
+    s += f'<text x="44" y="84" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
+    s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="44" y="128">{esc(c["l1"])}</tspan><tspan x="44" y="158" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
+    s += f'<rect x="{DIV}" y="44" width="1" height="{h - 88}" fill="{t["line"]}"/>\n'
+    # right block
+    x = DIV + 36
+    right = w - (140 if c.get('icon') else 44)
+    fs, ps = 18, 17
+    lines = feature_lines(c['stat'], fs, right - x)
+    line_h = 28
+    block = len(lines) * line_h + 14 + 34          # features, gap, pills
+    top = (46 + 158) / 2 - block / 2               # centred on the left block
+    y = top + 20
+    for ln in lines:
+        s += f'<text x="{x}" y="{y:.0f}" font-family="{MONO}" font-size="{fs}" fill="{a}">{esc(ln)}</text>\n'
+        y += line_h
+    s += pills(c['pills'], t, x, round(y - line_h + 22), ps)
     if c.get('icon'):
-        s += f'<image x="{w - 100}" y="30" width="60" height="60" href="{c["icon"]}" clip-path="inset(0 round 14px)"/>\n'
-    s += f'<text x="44" y="{ROW1}" font-family="{MONO}" font-size="22" fill="{t["fg"]}">{esc(c["l1"])}</text>\n'
-    s += f'<text x="44" y="{ROW2}" font-family="{MONO}" font-size="22" fill="{t["muted"]}">{esc(c["l2"])}</text>\n'
-    s += f'<text x="{COL2}" y="{ROW1}" font-family="{MONO}" font-size="17" fill="{a}">{esc(c["stat"])}</text>\n'
-    s += pills(c['pills'], t, COL2, ROW2 - 23, 16)          # (a pill's text baseline sits on row 2)
+        s += f'<image x="{w - 112}" y="{(h - 72) // 2}" width="72" height="72" href="{c["icon"]}" clip-path="inset(0 round 16px)"/>\n'
     s += f'</g>\n<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="20" fill="none" stroke="{t["line"]}"/>\n</svg>\n'
     return s
 
