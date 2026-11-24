@@ -75,7 +75,7 @@ def card(c, mode, w=600, h=330):
         s += f'<image x="{w - 112}" y="36" width="72" height="72" href="{c["icon"]}" clip-path="inset(0 round 16px)"/>\n'
     s += f'<text x="40" y="92" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
     s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="40" y="144">{esc(c["l1"])}</tspan><tspan x="40" y="176" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
-    s += f'<text x="40" y="222" font-family="{MONO}" font-size="17" fill="{a}">{esc(c["stat"])}</text>\n'
+    s += f'<text x="40" y="222" font-family="{MONO}" font-size="{c.get("stat_size", 17)}" fill="{a}">{esc(c["stat"])}</text>\n'
     s += pills(c['pills'], t, 40, 258, 15)
     s += f'</g>\n<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="20" fill="none" stroke="{t["line"]}"/>\n</svg>\n'
     return s
@@ -83,7 +83,7 @@ def card(c, mode, w=600, h=330):
 
 CARDS = [
     dict(slug='bigfoot', name='Bigfoot', accent={'dark': '#f2b134', 'light': '#9a6700'}, l1="Find what's eating your disk.", l2='Disk space analyzer for Windows',
-         stat='1M files in 16 s · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
+         stat='space at a glance · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
     dict(slug='cratedig', name='Cratedig', accent={'dark': '#4da3ff', 'light': '#1f6fd1'}, l1='Dig through your crates.', l2='Explorer + media player in one',
          stat='plays in sort order · waveforms · playlists', pills=['Python', 'Qt 6', 'mpv', 'ffmpeg', 'Inno Setup']),
     dict(slug='sensitive-pi', name='Sensitive P.I.', accent={'dark': '#ff6b6b', 'light': '#c23b3b'}, icon=img('sensitive-pi-icon-168.webp'),
@@ -94,6 +94,8 @@ CARDS = [
          stat='live 2026 · guarded cutover with auto rollback', pills=['PHP', 'HTML/CSS/JS', 'Python']),
     dict(slug='play', name='PLAY', accent={'dark': '#ff8a3d', 'light': '#b85a12'}, l1='Your movies, on your Roku.', l2='Windows app + Roku TV app',
          stat='no accounts · no cloud · no transcoding', pills=['Python', 'Qt 6', 'BrightScript']),
+    dict(slug='workout-calendar', name='Workout Calendar', accent={'dark': '#4da3ff', 'light': '#1a6fd4'}, l1='Tap a day. Mark the workout.', l2='Android app',
+         stat='no internet permission · no accounts · stays on the phone', stat_size=15.5, pills=['Kotlin', 'Jetpack Compose', 'Room']),
 ]
 
 os.makedirs(OUT, exist_ok=True)

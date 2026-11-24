@@ -18,6 +18,7 @@
   <a href="https://github.com/AARROWdev/bigfoot"><b>Bigfoot</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/AARROWdev/cratedig"><b>Cratedig</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/AARROWdev/play"><b>PLAY</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/AARROWdev/workout-calendar"><b>Workout Calendar</b></a> &nbsp;·&nbsp;
   <a href="https://play.google.com/store/apps/details?id=com.sensitivephotofinder.app">Sensitive P.I.</a> &nbsp;·&nbsp;
   <a href="https://manifestdnb.com">manifestdnb.com</a> &nbsp;·&nbsp;
   <a href="https://grymlife.com">grymlife.com</a>
@@ -26,9 +27,10 @@
 ## Open source
 
 <p>
-  <a href="https://github.com/AARROWdev/bigfoot"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-bigfoot-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-bigfoot-light.svg"><img alt="Bigfoot: find what's eating your disk. A disk space analyzer for Windows that scans a million files in 16 seconds, maps every folder as a treemap, and never permanently deletes a file. Python, Qt 6." src="assets/card-bigfoot-dark.svg" width="49%"></picture></a>
+  <a href="https://github.com/AARROWdev/bigfoot"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-bigfoot-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-bigfoot-light.svg"><img alt="Bigfoot: find what's eating your disk. A disk space analyzer for Windows that shows where your space goes at a glance, maps every folder as a treemap, and never permanently deletes a file. Python, Qt 6." src="assets/card-bigfoot-dark.svg" width="49%"></picture></a>
   <a href="https://github.com/AARROWdev/cratedig"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-cratedig-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-cratedig-light.svg"><img alt="Cratedig: dig through your crates. A file explorer and media player in one window for Windows: folders play in the order you sorted them, with waveforms and playlists. Python, Qt 6, mpv, ffmpeg, Inno Setup." src="assets/card-cratedig-dark.svg" width="49%"></picture></a>
   <a href="https://github.com/AARROWdev/play"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-play-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-play-light.svg"><img alt="PLAY: your own movies and shows on your Roku TVs. A Windows app and a Roku TV app: the PC serves your files over the home network and the TV finds it by itself. HOME and KIDS views, collections in release order. Python, Qt 6, BrightScript." src="assets/card-play-dark.svg" width="49%"></picture></a>
+  <a href="https://github.com/AARROWdev/workout-calendar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-workout-calendar-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-workout-calendar-light.svg"><img alt="Workout Calendar: tap a day, mark the workout. An Android month calendar for logging workouts: each day shows the workout's initials and can hold notes, with no internet permission and no accounts. Kotlin, Jetpack Compose, Room." src="assets/card-workout-calendar-dark.svg" width="49%"></picture></a>
 </p>
 
 ## Apps and sites

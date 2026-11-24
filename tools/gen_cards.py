@@ -28,7 +28,7 @@ def icon_wave(a):
 CARDS = [
     dict(slug='bigfoot', name='Bigfoot', accent='#f2b134', ink='#9a6700', icon=icon_treemap,
          lines=["Find what's eating your disk.", 'A disk space analyzer for Windows'],
-         stat='1M files in 16 s · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
+         stat='space at a glance · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
     dict(slug='cratedig', name='Cratedig', accent='#3aa8ff', ink='#0969da', icon=icon_wave,
          lines=['Dig through your crates.', 'Explorer + media player in one'],
          stat='plays in sort order · waveforms · playlists', pills=['Python', 'Qt 6', 'mpv', 'ffmpeg']),
