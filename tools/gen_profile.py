@@ -73,7 +73,7 @@ def card(c, mode, w=1224, h=330):
     s += glow(t, a, w - 40, 40)
     s += f'<rect width="{w}" height="6" fill="{a}"/>\n'
     if c.get('icon'):
-        s += f'<image x="488" y="36" width="72" height="72" href="{c["icon"]}" clip-path="inset(0 round 16px)"/>\n'
+        s += f'<image x="{w - 112}" y="36" width="72" height="72" href="{c["icon"]}" clip-path="inset(0 round 16px)"/>\n'
     s += f'<text x="40" y="92" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
     s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="40" y="144">{esc(c["l1"])}</tspan><tspan x="40" y="176" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
     s += f'<text x="40" y="222" font-family="{MONO}" font-size="{c.get("stat_size", 17)}" fill="{a}">{esc(c["stat"])}</text>\n'
