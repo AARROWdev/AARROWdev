@@ -6,7 +6,7 @@
 <rect width="1224" height="196" fill="#ffffff"/>
 <defs><radialGradient id="g"><stop offset="0" stop-color="#6b3fb5" stop-opacity="0.14"/><stop offset="1" stop-color="#6b3fb5" stop-opacity="0"/></radialGradient></defs><circle class="gl" cx="1164" cy="30" r="240" fill="url(#g)"/>
 <rect width="1224" height="6" fill="#6b3fb5"/>
-<text x="44" y="84" font-family="'JBM', 'JetBrains Mono', ui-monospace, Consolas, monospace" font-weight="700" font-size="44" letter-spacing="-1" fill="#16181b">Manifest DnB</text>
+<text x="44" y="84" font-family="'JBM', 'JetBrains Mono', ui-monospace, Consolas, monospace" font-weight="700" font-size="44" letter-spacing="-1" fill="#16181b">Manifest</text>
 <text font-family="'JBM', 'JetBrains Mono', ui-monospace, Consolas, monospace" font-size="22" fill="#16181b"><tspan x="44" y="128">manifestdnb.com</tspan><tspan x="44" y="158" fill="#5b6168">Label site + download store</tspan></text>
 <rect x="520" y="44" width="1" height="108" fill="#d9dde2"/>
 <text x="556" y="84" font-family="'JBM', 'JetBrains Mono', ui-monospace, Consolas, monospace" font-size="18" fill="#6b3fb5">design · front end · back end · deploy</text>
