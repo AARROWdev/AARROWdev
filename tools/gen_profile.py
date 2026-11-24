@@ -88,7 +88,7 @@ CARDS = [
          stat='plays in sort order · waveforms · playlists', pills=['Python', 'Qt 6', 'mpv', 'ffmpeg', 'Inno Setup']),
     dict(slug='sensitive-pi', name='Sensitive P.I.', accent={'dark': '#ff6b6b', 'light': '#c23b3b'}, icon=img('sensitive-pi-icon-168.webp'),
          l1='Finds exposed IDs, cards and', l2='passwords in your photos.', stat='on Google Play · runs fully on-device', pills=['Kotlin', 'Android']),
-    dict(slug='websites', name='Websites', accent={'dark': '#b58ef0', 'light': '#6b3fb5'}, l1='manifestdnb.com', l2='Label site + download store',
+    dict(slug='websites', name='Manifest DnB', accent={'dark': '#b58ef0', 'light': '#6b3fb5'}, l1='manifestdnb.com', l2='Label site + download store',
          stat='design · front end · back end · deploy', pills=['HTML/CSS/JS', 'PHP', 'PayPal']),
     dict(slug='grymlife', name='grymlife.com', accent={'dark': '#4fd1a5', 'light': '#1f7a5c'}, l1='Artist portfolio site', l2='Static pages + custom PHP admin',
          stat='live 2026 · guarded cutover with auto rollback', pills=['PHP', 'HTML/CSS/JS', 'Python']),
