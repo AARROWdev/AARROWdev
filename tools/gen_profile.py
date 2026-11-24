@@ -65,19 +65,56 @@ def hero(mode):
     return s
 
 
-# Cards are drawn 1224 wide: two 600px cards side by side at 49% on a 830px README column scale to 0.678, and one card at width="100%" scales to 830/1224 = 0.678, so the text keeps the size it had in the two-up layout. Two columns: name, tagline and subtitle on the left; stat line and pills on the right (top and bottom aligned with the left column); icon at the far right, vertically centred.
-def card(c, mode, w=1224, h=210):
+# Cards are full-width rows, drawn 1224 wide so a card at width="100%" on GitHub's 830px column keeps the two-up text
+# size (scale 0.678). Left: name, tagline, subtitle. A thin divider. Right: the features (accent colour, split onto two
+# lines when long) above the tech pills; the right block is vertically centred on the left block so the card reads as
+# one row. The height fits the content. An icon (Sensitive P.I.) sits at the far right, centred.
+DIV = 520                                    # the divider (the widest left line ends ~470); the right block starts 36 after it
+
+
+def text_w(s, size):
+    return len(s) * size * 0.6                 # JetBrains Mono: every glyph is 0.6 em wide
+
+
+def feature_lines(stat, size, room):
+    """The features on one line, or split at a ' · ' into two lines when one doesn't fit."""
+    if text_w(stat, size) <= room:
+        return [stat]
+    parts = stat.split(' · ')
+    best = None
+    for k in range(1, len(parts)):
+        a, b = ' · '.join(parts[:k]), ' · '.join(parts[k:])
+        widest = max(text_w(a, size), text_w(b, size))
+        if best is None or widest < best[0]:
+            best = (widest, [a, b])
+    return best[1]
+
+
+def card(c, mode, w=1224, h=196):
     t = THEMES[mode]
     a = c['accent'][mode]
     s = head(w, h, f"{c['name']}: {c['l1']} {c['l2']} {c['stat']}", t)
-    s += glow(t, a, w - 40, 40)
+    s += glow(t, a, w - 60, 30)
     s += f'<rect width="{w}" height="6" fill="{a}"/>\n'
+    # left block: name / tagline / subtitle (top of the name cap ~ y 46, bottom of the subtitle ~ y 156)
+    s += f'<text x="44" y="84" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
+    s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="44" y="128">{esc(c["l1"])}</tspan><tspan x="44" y="158" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
+    s += f'<rect x="{DIV}" y="44" width="1" height="{h - 88}" fill="{t["line"]}"/>\n'
+    # right block
+    x = DIV + 36
+    right = w - (140 if c.get('icon') else 44)
+    fs, ps = 18, 17
+    lines = feature_lines(c['stat'], fs, right - x)
+    line_h = 28
+    block = len(lines) * line_h + 14 + 34          # features, gap, pills
+    top = (46 + 158) / 2 - block / 2               # centred on the left block
+    y = top + 20
+    for ln in lines:
+        s += f'<text x="{x}" y="{y:.0f}" font-family="{MONO}" font-size="{fs}" fill="{a}">{esc(ln)}</text>\n'
+        y += line_h
+    s += pills(c['pills'], t, x, round(y - line_h + 22), ps)
     if c.get('icon'):
         s += f'<image x="{w - 112}" y="{(h - 72) // 2}" width="72" height="72" href="{c["icon"]}" clip-path="inset(0 round 16px)"/>\n'
-    s += f'<text x="40" y="82" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
-    s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="40" y="134">{esc(c["l1"])}</tspan><tspan x="40" y="166" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
-    s += f'<text x="640" y="62" font-family="{MONO}" font-size="{c.get("stat_size", 17)}" fill="{a}">{esc(c["stat"])}</text>\n'
-    s += pills(c['pills'], t, 640, 138, 15)
     s += f'</g>\n<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="20" fill="none" stroke="{t["line"]}"/>\n</svg>\n'
     return s
 
@@ -96,7 +133,7 @@ CARDS = [
     dict(slug='play', name='PLAY', accent={'dark': '#ff8a3d', 'light': '#b85a12'}, l1='Your movies, on your Roku.', l2='Windows app + Roku TV app',
          stat='no accounts · no cloud · no transcoding', pills=['Python', 'Qt 6', 'BrightScript']),
     dict(slug='workout-calendar', name='Workout Calendar', accent={'dark': '#4da3ff', 'light': '#1a6fd4'}, l1='Tap a day. Mark the workout.', l2='Android app',
-         stat='no internet permission · no accounts · stays on the phone', stat_size=15.5, pills=['Kotlin', 'Jetpack Compose', 'Room']),
+         stat='no internet permission · no accounts · stays on the phone', pills=['Kotlin', 'Jetpack Compose', 'Room']),
 ]
 
 os.makedirs(OUT, exist_ok=True)

@@ -38,9 +38,6 @@
 
 <p>
   <a href="https://manifestdnb.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-websites-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-websites-light.svg"><img alt="Manifest DnB: manifestdnb.com, a record label site with a download store, from design through front end, back end and deployment." src="assets/card-websites-dark.svg" width="100%"></picture></a>
-</p>
-
-<p>
   <a href="https://grymlife.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-grymlife-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-grymlife-light.svg"><img alt="grymlife.com: an artist's portfolio site, live since 2026. Generated static pages with a custom PHP admin, moved to production through a guarded cutover with automatic rollback." src="assets/card-grymlife-dark.svg" width="100%"></picture></a>
 </p>
 
