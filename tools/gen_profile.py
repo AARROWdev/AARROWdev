@@ -99,10 +99,9 @@ def card(c, mode, w=1224, h=196):
     # left block: name / tagline / subtitle (top of the name cap ~ y 46, bottom of the subtitle ~ y 156)
     s += f'<text x="44" y="84" font-family="{MONO}" font-weight="700" font-size="44" letter-spacing="-1" fill="{t["fg"]}">{esc(c["name"])}</text>\n'
     s += f'<text font-family="{MONO}" font-size="22" fill="{t["fg"]}"><tspan x="44" y="128">{esc(c["l1"])}</tspan><tspan x="44" y="158" fill="{t["muted"]}">{esc(c["l2"])}</tspan></text>\n'
-    div = c.get('div', DIV)                    # a card whose tagline is wider than the left block moves its divider right
-    s += f'<rect x="{div}" y="44" width="1" height="{h - 88}" fill="{t["line"]}"/>\n'
+    s += f'<rect x="{DIV}" y="44" width="1" height="{h - 88}" fill="{t["line"]}"/>\n'
     # right block
-    x = div + 36
+    x = DIV + 36
     right = w - (140 if c.get('icon') else 44)
     fs, ps = 18, 17
     lines = feature_lines(c['stat'], fs, right - x)
@@ -125,7 +124,7 @@ CARDS = [
          stat='space at a glance · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
     dict(slug='cratedig', name='Cratedig', accent={'dark': '#4da3ff', 'light': '#1f6fd1'}, l1='Dig through your crates.', l2='Explorer + media player in one',
          stat='plays in sort order · waveforms · playlists', pills=['Python', 'Qt 6', 'mpv', 'ffmpeg', 'Inno Setup']),
-    dict(slug='twinsweep', name='Twinsweep', accent={'dark': '#2ec4d6', 'light': '#0f7685'}, l1='Find and delete duplicates with ease.', l2='Duplicate file finder for Windows', div=556,
+    dict(slug='twinsweep', name='Twinsweep', accent={'dark': '#2ec4d6', 'light': '#0f7685'}, l1='Find and delete duplicates.', l2='Duplicate file finder for Windows',
          stat='exact byte-for-byte matches · Recycle Bin only · one copy always stays', pills=['Python', 'Qt 6']),
     dict(slug='sensitive-pi', name='Sensitive P.I.', accent={'dark': '#ff6b6b', 'light': '#c23b3b'}, icon=img('sensitive-pi-icon-168.webp'),
          l1='Finds exposed IDs, cards and', l2='passwords in your photos.', stat='on Google Play · runs fully on-device', pills=['Kotlin', 'Android']),
