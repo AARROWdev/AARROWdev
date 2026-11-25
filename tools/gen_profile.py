@@ -124,6 +124,8 @@ CARDS = [
          stat='space at a glance · treemap · 0 silent deletes', pills=['Python', 'Qt 6', 'Inno Setup']),
     dict(slug='cratedig', name='Cratedig', accent={'dark': '#4da3ff', 'light': '#1f6fd1'}, l1='Dig through your crates.', l2='Explorer + media player in one',
          stat='plays in sort order · waveforms · playlists', pills=['Python', 'Qt 6', 'mpv', 'ffmpeg', 'Inno Setup']),
+    dict(slug='twinsweep', name='Twinsweep', accent={'dark': '#2ec4d6', 'light': '#0f7685'}, l1='Sweep up the extra copies.', l2='Duplicate finder for Windows',
+         stat='exact byte-for-byte matches · Recycle Bin only · one copy always stays', pills=['Python', 'Qt 6']),
     dict(slug='sensitive-pi', name='Sensitive P.I.', accent={'dark': '#ff6b6b', 'light': '#c23b3b'}, icon=img('sensitive-pi-icon-168.webp'),
          l1='Finds exposed IDs, cards and', l2='passwords in your photos.', stat='on Google Play · runs fully on-device', pills=['Kotlin', 'Android']),
     dict(slug='ulti-list', name='Ulti-List', accent={'dark': '#c8f23b', 'light': '#3a31a0'}, icon=img('ulti-list-icon-168.webp'),
